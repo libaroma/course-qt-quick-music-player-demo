@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>App.qml</file>
+        <file>LayoutHeaderView.qml</file>
+        <file>LayoutBottomView.qml</file>
+        <file>PageHomeView.qml</file>
+        <file>MusicIconButton.qml</file>
+        <file>MusicToolButton.qml</file>
+        <file>MusicRoundImage.qml</file>
+    </qresource>
+</RCC>
