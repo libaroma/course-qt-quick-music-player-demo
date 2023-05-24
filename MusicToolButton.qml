@@ -14,8 +14,10 @@ ToolButton{
 
     icon.source:iconSource
 
-    ToolTip.visible: hovered
-    ToolTip.text: toolTip
+    MusicToolTip{
+        visible: parent.hovered
+        text: toolTip
+    }
 
     background: Rectangle{
         color: self.down||(isCheckable&&self.checked)?"#eeeeee":"#00000000"
@@ -25,3 +27,7 @@ ToolButton{
     checkable: isCheckable
     checked: isChecked
 }
+
+
+
+

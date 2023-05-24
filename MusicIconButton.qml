@@ -20,8 +20,10 @@ Button{
     icon.height: iconHeight
     icon.width: iconWidth
 
-    ToolTip.visible: hovered
-    ToolTip.text: toolTip
+    MusicToolTip{
+        visible: parent.hovered
+        text: toolTip
+    }
 
     background: Rectangle{
         color: self.down||(isCheckable&&self.checked)?"#497563":"#20e9f4ff"

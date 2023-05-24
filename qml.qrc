@@ -7,5 +7,24 @@
         <file>MusicIconButton.qml</file>
         <file>MusicToolButton.qml</file>
         <file>MusicRoundImage.qml</file>
+        <file>DetailRecommendPageView.qml</file>
+        <file>DetailSearchPageView.qml</file>
+        <file>DetailLocalPageView.qml</file>
+        <file>DetailFavoritePageView.qml</file>
+        <file>DetailHistoryPageView.qml</file>
+        <file>MusicBannerView.qml</file>
+        <file>MusicGridHotView.qml</file>
+        <file>MusicGridLatestView.qml</file>
+        <file>MusicListView.qml</file>
+        <file>DetailPlayListPageView.qml</file>
+        <file>MusicBorderImage.qml</file>
+        <file>PageDetailView.qml</file>
+        <file>MusicLyricView.qml</file>
+        <file>MusicTextButton.qml</file>
+        <file>Background.qml</file>
+        <file>AppSystemTrayIcon.qml</file>
+        <file>MusicNotification.qml</file>
+        <file>MusicLoading.qml</file>
+        <file>MusicToolTip.qml</file>
     </qresource>
 </RCC>

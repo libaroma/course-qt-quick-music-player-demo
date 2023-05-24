@@ -7,8 +7,12 @@ import QtQuick.Window 2.12
 
 
 ToolBar{
+
+    property point point: Qt.point(x,y)
+    property bool isSmallWindow: false
+
     background: Rectangle{
-        color: "#00AAAA"
+        color: "#00000000"
     }
 
     width: parent.width
@@ -34,21 +38,24 @@ ToolBar{
             id:smallWindow
             iconSource: "qrc:/images/small-window"
             toolTip: "小窗播放"
+            visible: !isSmallWindow
             onClicked: {
+                isSmallWindow = true
                 setWindowSize(330,650)
-                smallWindow.visible=false
-                normalWindow.visible=true
+                pageHomeView.visible = false
+                pageDetailView.visible = true
+                appBackground.showDefaultBackground =  pageHomeView.visible
             }
         }
         MusicToolButton{
             id:normalWindow
             iconSource: "qrc:/images/exit-small-window"
             toolTip: "退出小窗播放"
-            visible: false
+            visible: isSmallWindow
             onClicked: {
                 setWindowSize()
-                normalWindow.visible=false
-                smallWindow.visible=true
+                isSmallWindow = false
+                appBackground.showDefaultBackground =  pageHomeView.visible
             }
         }
         Item{
@@ -60,6 +67,14 @@ ToolBar{
                 font.family: window.mFONT_FAMILY
                 font.pointSize: 15
                 color:"#ffffff"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                acceptedButtons: Qt.LeftButton
+                onPressed:  setPoint(mouseX,mouseY)
+                onMouseXChanged: moveX(mouseX)
+                onMouseYChanged: moveY(mouseY)
             }
         }
         MusicToolButton{
@@ -173,6 +188,23 @@ ToolBar{
         window.height = height
         window.x=(Screen.desktopAvailableWidth-window.width)/2
         window.y=(Screen.desktopAvailableHeight-window.height)/2
+    }
+    function setPoint(mouseX =0 ,mouseY = 0){
+        point =Qt.point(mouseX,mouseY)
+        console.log(mouseX,mouseY)
+    }
+
+    function moveX(mouseX = 0 ){
+        var x = window.x + mouseX-point.x
+        if(x<-(window.width-70)) x = - (window.width-70)
+        if(x>Screen.desktopAvailableWidth-70) x = Screen.desktopAvailableWidth-70
+        window.x = x
+    }
+    function moveY(mouseY = 0 ){
+        var y = window.y + mouseY-point.y
+        if(y<=0) y = 0
+        if(y>Screen.desktopAvailableHeight-70) y = Screen.desktopAvailableHeight-70
+        window.y = y
     }
 }
 

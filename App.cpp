@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QIcon>
-
+#include "httputils.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,8 +11,9 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    app.setWindowIcon(QIcon(":/images/music.png"));
+    qmlRegisterType<HttpUtils>("MyUtils",1,0,"HttpUtils");
 
+    app.setWindowIcon(QIcon(":/images/music.png"));
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/App.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
